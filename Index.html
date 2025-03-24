@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Fire: Not Just a Game, But a Life</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background: black;
+            color: white;
+            overflow: hidden;
+            text-align: center;
+        }
+        .scene {
+            position: absolute;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            background-size: cover;
+            background-position: center;
+        }
+        .active {
+            opacity: 1;
+        }
+        .text-box {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 80%;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 🎵 Background Music -->
+    <audio id="bgMusic" loop>
+        <source src="https://drive.google.com/uc?export=download&id=1be6HMAWq8bCYQFFIsxhJr6SBZTZo1GSq" type="audio/mp3">
+    </audio>
+
+    <!-- 🔫 Sound Effects -->
+    <audio id="desertEagle" src="https://drive.google.com/uc?export=download&id=1Wapf5EElmk5Z-J77-lpXmLbQJmtE7gal"></audio>
+    <audio id="m1887" src="https://drive.google.com/uc?export=download&id=1uFqng1jSU_M4CpehfJuCgASQoZnUOkHW"></audio>
+
+    <!-- 🌍 Scenes -->
+    <div class="scene active" id="scene1" style="background: url('https://via.placeholder.com/1920x1080/000000/ffffff?text=Dark+Gaming+Room') no-repeat;">
+        <div class="text-box">
+            <h1>They say Free Fire is just a game…</h1>
+            <p>But what if I told you, it’s more than that? It’s a life… a battlefield where only the strongest survive.</p>
+        </div>
+    </div>
+
+    <div class="scene" id="scene2" style="background: url('https://via.placeholder.com/1920x1080/000000/ffffff?text=Skydiving+Scene') no-repeat;">
+        <div class="text-box">
+            <h1>From the moment you drop, the clock starts ticking.</h1>
+            <p>Every second, every move, every decision… it all matters. Either you fight, or you fall.</p>
+        </div>
+    </div>
+
+    <div class="scene" id="scene3" style="background: url('https://via.placeholder.com/1920x1080/000000/ffffff?text=Looting+and+Survival') no-repeat;">
+        <div class="text-box">
+            <h1>Life is no different.</h1>
+            <p>You start with nothing, struggling to find your place, searching for the right tools to survive.</p>
+        </div>
+    </div>
+
+    <div class="scene" id="scene4" style="background: url('https://via.placeholder.com/1920x1080/000000/ffffff?text=Allies+and+Betrayals') no-repeat;">
+        <div class="text-box">
+            <h1>Some stand with you, fight beside you…</h1>
+            <p>Others turn their backs when you least expect it. Trust is a risk, and in the end, only the strongest bonds survive.</p>
+        </div>
+    </div>
+
+    <div class="scene" id="scene5" style="background: url('https://via.placeholder.com/1920x1080/000000/ffffff?text=The+Storm+Closes+In') no-repeat;">
+        <div class="text-box">
+            <h1>Time doesn’t wait.</h1>
+            <p>If you don’t move forward, you get left behind. Hesitate for a second, and you lose everything.</p>
+        </div>
+    </div>
+
+    <div class="scene" id="scene6" style="background: url('https://via.placeholder.com/1920x1080/000000/ffffff?text=Final+Battle') no-repeat;">
+        <div class="text-box">
+            <h1>In the end, there can only be one.</h1>
+            <p>The one who fought harder, who never gave up, who became a legend.</p>
+        </div>
+    </div>
+
+    <div class="scene" id="scene7" style="background: url('https://via.placeholder.com/1920x1080/000000/ffffff?text=Victory+Screen') no-repeat;">
+        <div class="text-box">
+            <h1>Free Fire is not just a game.</h1>
+            <p>It’s life itself—a battle of survival, courage, and choices.</p>
+            <h2>Are you ready to survive?</h2>
+        </div>
+    </div>
+
+    <script>
+        let currentScene = 0;
+        const scenes = document.querySelectorAll(".scene");
+        const bgMusic = document.getElementById("bgMusic");
+        const desertEagle = document.getElementById("desertEagle");
+        const m1887 = document.getElementById("m1887");
+
+        function nextScene() {
+            if (currentScene < scenes.length - 1) {
+                scenes[currentScene].classList.remove("active");
+                currentScene++;
+                scenes[currentScene].classList.add("active");
+                playSound();
+            }
+        }
+
+        function playSound() {
+            if (currentScene === 3) desertEagle.play();
+            if (currentScene === 4) m1887.play();
+        }
+
+        document.addEventListener("click", nextScene);
+        window.onload = () => bgMusic.play();
+    </script>
+
+</body>
+</html>
